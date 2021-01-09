@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 const kBottomButtonHeight = 80.0;
-const kBottomButtonColour = Color(0xFFEB1555);
+const kBottomButtonColour = Color(0xFF7B1FA2);
 
 const kTextFieldInputDecoration = InputDecoration(
   filled: true,
-  hintText: 'eNtEr SoMe TeXt',
+  hintText: 'Enter some text',
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(
       Radius.circular(10.0),

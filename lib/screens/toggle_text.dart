@@ -14,6 +14,7 @@ class ToggleTextScreen extends StatefulWidget {
 
 class _ToggleTextScreenState extends State<ToggleTextScreen> {
   String inputText = '';
+  var inputController = TextEditingController();
 
   String replaceCharAt(String oldString, int index, String newChar) {
     return oldString.substring(0, index) +
@@ -37,13 +38,24 @@ class _ToggleTextScreenState extends State<ToggleTextScreen> {
                   maxLines: null,
                   keyboardType: TextInputType.multiline,
                   decoration: kTextFieldInputDecoration,
+                  controller: inputController,
                   onChanged: (value) {
                     inputText = value;
                   }),
             ),
           ),
           BottomButton(
-            title: 'gEnErAtE tExT',
+            onTap: () {
+              inputText = '';
+              inputController.clear();
+
+              BotToast.showText(text: 'Cleared Text!');
+            },
+            title: 'Clear Text',
+            colour: Color(0xFF4CAF50),
+          ),
+          BottomButton(
+            title: 'Copy to Clipboard',
             onTap: () {
               Random random = Random();
               for (int i = 0; i < inputText.length; i++) {
@@ -61,7 +73,7 @@ class _ToggleTextScreenState extends State<ToggleTextScreen> {
 
               Clipboard.setData(new ClipboardData(text: inputText));
 
-              BotToast.showSimpleNotification(title: 'cOpIeD tO ClIpBoArD');
+              BotToast.showText(text: 'Copied to Clipboard!');
             },
           ),
         ],

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:andys_tools/utilities/constants.dart';
 
 class BottomButton extends StatelessWidget {
-  BottomButton({@required this.onTap, @required this.title});
+  BottomButton({@required this.onTap, @required this.title, this.colour});
 
   final Function onTap;
   final String title;
+  final Color colour;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class BottomButton extends StatelessWidget {
             style: kBottomButtonTextStyle,
           ),
         ),
-        color: kBottomButtonColour,
+        color: (colour == null) ? kBottomButtonColour : colour,
         margin: EdgeInsets.only(top: 10),
         padding: EdgeInsets.only(bottom: 20),
         width: double.infinity,
